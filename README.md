@@ -36,4 +36,31 @@ This project demonstrates how create a CodeBuild project that automatically appl
 6. The Terraform file provided will launch the EC2 instance and install the HTML website on it
 
 ### Test the Terraform Script
-1. 
+1. Open the repository cloned on your computer. select the Terraform script provided 'ec2.tf' and within the script update the profile name your selected profile name. To create a profile name which will be used, open your Command Line or Terminal and used the command below:
+```bash
+ aws configure --profile ' specifiy your desired profile name after the command'
+ ```
+2. Once you select enter you will be asked for your Access Key ID,and Secret Access Key. This can be retrieved from the IAM User file you downloaded as part of creating the IAM USer in the first step above. Lastly you'll be asked for you default region. This can be located in the AWS management console home page
+3. Once the profile name is updated in the Terraform script, you will also have to update the 'key_name' with key pair which is one your AWS management console. This can be found in the EC2 service within the key Pair section. Copy and paste that key pair name into the Terraform script replacing the key_name original provided
+4. Run the command in VS code below to ensure that we can create the reasources in the file in your AWS account:
+```bash
+Terraform innit
+ ```
+This command initialises the file with your AWS environment. This should look like ths:
+Provie a screenshot
+6. Once initialised the next command to enter is 
+```bash
+ Terraform apply
+```
+This command ensures that the resources can be created in the AWS account. This should look like the:
+provide screenshot
+It will then create the resource in your AWS account 
+
+7. The test requires that the website created on the EC2 instance courtesy of the Terraform script is successfully accessed. Hover over the URL link provided just under outputs, copy and paste the link into your web browser
+8. If you can access the website this indicates the Terraform file is successfuly working.
+9. Delete the resources using the command below:
+```bash
+ Terraform destroy
+```
+It will show you the deletion plan, enter 'yes' and it will delete the resources created in the AWS account. 
+10. Once you have tested the Terraform script. Any changes made to the scripted should be pushed to your GitHub repository 
