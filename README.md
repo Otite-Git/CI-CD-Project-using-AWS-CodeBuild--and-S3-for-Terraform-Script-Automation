@@ -1,4 +1,4 @@
-# 💻Automatically apply Terraform and Docker with AWS Codebuild (CI/CD)☁️
+# 💻Terraform Script automation to install HTML Website with AWS Codebuild and AWS S3 (CI/CD)☁️
 
 Hi! Welcome to my repository containing my AWS Project I've have undertaken as a Cloud Engineer and Cloud architect enthusiast⚡️:
 
