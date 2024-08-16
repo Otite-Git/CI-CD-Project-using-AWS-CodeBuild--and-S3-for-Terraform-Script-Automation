@@ -9,9 +9,6 @@ In this repository you will see a description of the project, low and high level
 
 This project demonstrates how create a CodeBuild project that automatically applies your Terraform scripts whenever I commit changes in the GitHub repository. I'll also create a CodeBuild project that automatically builds any Docker image and push it to the Docker Hub repository.
 
-![Low Level Architectural Diagram](https://github.com/user-attachments/assets/f0eb3f39-5be1-4e78-9e27-c0fc83eb2cdd)
-
-
 
 - - - 
 ## **Tools used**
@@ -71,8 +68,23 @@ It will show you the deletion plan, enter 'yes' and it will delete the resources
 10. Once you have tested the Terraform script. Any changes made to the scripted should be pushed to your GitHub repository 
 
 ### Shell Script configuration
-11. Shell scripts will be created to install Terraform, configure a profile and run the Terraform command.
-12. Open the project folder you have been working on as part of this project and create a new folder. All the CI/CD scripts will be contained within this folder 
-13. Terraform will have to be installed in the container that CodeBuild will use as part of the project so the first Shell script that will be created is the Shell script which will be used to install Terraform on the container. This will require creating a new file within the new folder you would have create in step 11. For the purposes of this project the Shell script can be found in this repository and it is called 'install-terraform.sh'. Ensure to remain the file name with 'install-terraform.sh'. Copy the script contents within the file and paste it in the new file. Once you have pasted the content inside the file ensure to save it
-14. the second Shell script this will be created is the Shell script that will be used to create a named profile in the container. Create another new file within the folder created in step 11. For the purposes of this project the Shell script can be found in this repository and it is called 'configure-named-profile.sh'. Ensure to remain the file name with 'configure-named-profile.sh'. Copy the script contents within the file and paste it in the new file. Once you have pasted the content inside the file ensure to save it
-15. The third Shell script that will be created is the script used to create the Terraform command: Terraform init, Terraform apply and Terraform destroy. Create another new file in the folder created above. For the purpose of this project the Shell script can be found in this repository and it is called 'apply-terraform.sh'.  Ensure to remain the file name with 'apply-terraform.sh'. Copy the script contents within the file and paste it in the new file. Once you have pasted the content inside the file ensure to save it
+1. Shell scripts will be created to install Terraform, configure a profile and run the Terraform command.
+2. Open the project folder you have been working on as part of this project and create a new folder. All the CI/CD scripts will be contained within this folder 
+3. Terraform will have to be installed in the container that CodeBuild will use as part of the project so the first Shell script that will be created is the Shell script which will be used to install Terraform on the container. This will require creating a new file within the new folder you would have create in step 11. For the purposes of this project the Shell script can be found in this repository and it is called 'install-terraform.sh'. Ensure to remain the file name with 'install-terraform.sh'. Copy the script contents within the file and paste it in the new file. Once you have pasted the content inside the file ensure to save it
+4. the second Shell script this will be created is the Shell script that will be used to create a named profile in the container. Create another new file within the folder created in step 11. For the purposes of this project the Shell script can be found in this repository and it is called 'configure-named-profile.sh'. Ensure to remain the file name with 'configure-named-profile.sh'. Copy the script contents within the file and paste it in the new file. Once you have pasted the content inside the file ensure to save it
+5. The third Shell script that will be created is the script used to create the Terraform command: Terraform init, Terraform apply and Terraform destroy. Create another new file in the folder created above. For the purpose of this project the Shell script can be found in this repository and it is called 'apply-terraform.sh'.  Ensure to remain the file name with 'apply-terraform.sh'. Copy the script contents within the file and paste it in the new file. Once you have pasted the content inside the file ensure to save it
+
+### Personal Access Token Creation
+1. Create a Personal Access Token in GitHub which will be used by the CodeBuild to access the files as part of the projecr job creation
+
+### Creating the CodeBuild project
+1. It’s highly recommended that if you haven't updated and pushed any updates to GitHub it’s wise to do so before completing this part
+2. In the AWS Management console under services type CodeBuild and select click on Build Project. It’s wise to name the project the same as your GitHub Repo in the event you have multiple projects it’s easier to identify them for each project that you do. Also feel free to give a description
+3. Under the Source Tab select GitHub and this is where the repo that was created earlier for the project is located. Select connect with a GitHub personal access token and enter in your personal access token that was created previously, then save token. It will now connect to your GitHub account
+4. Select repository in my GitHub account and in the dropdown you will see all the repositories you’ve created. Choose the correct repo for your project
+5. Under the Primary Source webhook events check rebuild every time a code change is pushed to this repo and leave it on single build. For the event type select push and pull request merge. This means anytime we push or pull a request to the repo it will rebuild the project
+6. Under the Environment section choose manage image and for the Operating system select Amazon Linux. For the image select the latest image available
+7. For the Environment variables in the configured-named-profile.sh file that was created previously is where you’ll find the information to implement into the CodeBuild environment variables section. This will include aws access key ID, secret access key, region and profile name. Enter in the values for each one. Enter in IAM user secret access key and ID information that was saved as well into the value section
+8. The Buildspec section is where you’ll tell codebuild where the buildspec.yml folder is located. For my particular location it will be in my cicd folder so for the buildspec name give the correct location of your folder
+9. Then click create build project. Now it will create the build project for you. Once the build has been created you can now see the name of it
+10. Click Start Build and CodeBuild will clone the repo on the container and it will use the buildpec file to run the commands. This particular file will create an ec2 instance and run the website from the install-website.sh file onto the ec2 instance
