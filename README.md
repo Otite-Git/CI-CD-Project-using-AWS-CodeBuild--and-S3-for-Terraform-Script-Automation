@@ -67,4 +67,12 @@ It will then create the resource in your AWS account
  Terraform destroy
 ```
 It will show you the deletion plan, enter 'yes' and it will delete the resources created in the AWS account. 
+
 10. Once you have tested the Terraform script. Any changes made to the scripted should be pushed to your GitHub repository 
+
+### Shell Script configuration
+11. Shell scripts will be created to install Terraform, configure a profile and run the Terraform command.
+12. Open the project folder you have been working on as part of this project and create a new folder. All the CI/CD scripts will be contained within this folder 
+13. Terraform will have to be installed in the container that CodeBuild will use as part of the project so the first Shell script that will be created is the Shell script which will be used to install Terraform on the container. This will require creating a new file within the new folder you would have create in step 11. For the purposes of this project the Shell script can be found in this repository and it is called 'install-terraform.sh'. Ensure to remain the file name with 'install-terraform.sh'. Copy the script contents within the file and paste it in the new file. Once you have pasted the content inside the file ensure to save it
+14. the second Shell script this will be created is the Shell script that will be used to create a named profile in the container. Create another new file within the folder created in step 11. For the purposes of this project the Shell script can be found in this repository and it is called 'configure-named-profile.sh'. Ensure to remain the file name with 'configure-named-profile.sh'. Copy the script contents within the file and paste it in the new file. Once you have pasted the content inside the file ensure to save it
+15. The third Shell script that will be created is the script used to create the Terraform command: Terraform init, Terraform apply and Terraform destroy. Create another new file in the folder created above. For the purpose of this project the Shell script can be found in this repository and it is called 'apply-terraform.sh'.  Ensure to remain the file name with 'apply-terraform.sh'. Copy the script contents within the file and paste it in the new file. Once you have pasted the content inside the file ensure to save it
