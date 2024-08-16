@@ -10,7 +10,6 @@ In this repository you will see a description of the project, low and high level
 This project demonstrates how create a CodeBuild project that automatically applies your Terraform scripts whenever I commit changes in the GitHub repository. I'll also create a CodeBuild project that automatically builds any Docker image and push it to the Docker Hub repository.
 
 
-- - - 
 ## **Tools used**
 
 1. **IAM User:** CodeBuild will use User Credentials to authenticate with the AWS environemnt when the Build Project is being created
@@ -88,3 +87,57 @@ It will show you the deletion plan, enter 'yes' and it will delete the resources
 8. The Buildspec section is where you’ll tell codebuild where the buildspec.yml folder is located. For my particular location it will be in my cicd folder so for the buildspec name give the correct location of your folder
 9. Then click create build project. Now it will create the build project for you. Once the build has been created you can now see the name of it
 10. Click Start Build and CodeBuild will clone the repo on the container and it will use the buildpec file to run the commands. This particular file will create an ec2 instance and run the website from the install-website.sh file onto the ec2 instance
+11. If the build is a success and you now have the ability to view the outputs. CodeBuild has ran the commands and you can see the outputs through the build logs and phase details:
+![Screenshot 2024-08-16 at 20 09 11](https://github.com/user-attachments/assets/18d302ff-b751-4870-b977-ca97ec67df45)
+
+ ### Running Terraform destroy in the CodeBuild project
+1. Now we can finally clean up the environment so the next step is to destroy the resources created in the build
+2. Go back to VSCode and in the apply-terraform.sh file add a hashtag to the beginning of line 13 and for line 16 remove the hashtag at the beginning. This will automatically run the build job and instead of terraform apply it will run destroy
+3. Save the file and update your file to GitHub. Type a commit message such as update file (click commit) and click sync this will initiate the build
+4. Go Back to CodeBuild and in the latest build history you’ll see that it’s in progress and the status will let you know it was a success as well. You can see the build was successfully destroyed through the build logs and phase details once again:
+![Screenshot 2024-08-16 at 20 35 22](https://github.com/user-attachments/assets/dd94bdf6-091a-4c51-821f-4f8d02fa89ad)
+![Screenshot 2024-08-16 at 20 39 58](https://github.com/user-attachments/assets/bd7ba0a5-d1cc-4e9e-81d5-3ec2e1024f4d)
+
+## **How to Use**
+
+1. Clone this repository to your local machine.
+2. Follow the AWS documentation to create the required resources (S3 Bucket IAM Management) as outlined in the architecture overview
+3. Use the provided scripts to set up the reosurce and applications
+4. Configure the reosurces assets as per the architecture
+5. Access the Website website through the endpoint URL for your bucket
+
+## **Additional Resources**
+
+- **AWS Documentation:** Refer to the [AWS documentation](https://aws.amazon.com/documentation/) for detailed guides on setting up S3 Bucket, IAM roles and other services such as VPC, EC2, Auto Scaling, and Load Balancer
+- **GitHub Repository Files:** Refer to [Otite-Git/-Host-a-Static-Website-on-AWS-S3-Bucket-With-Terraform](https://github.com/Otite-Git/Host-a-Static-Website-on-AWS-S3-Bucket-With-Terraform.git) to access the repository files for scripts, architectural diagrams, and configuration files necessary for deploying the website.
+
+## **Contributing**
+
+Contributions to this project are welcome! Please fork the repository and submit a pull request with your enhancements
+
+## **License**
+
+This project is licensed under the MIT License - see the LICENSE file for details
+
+## **What problems did I solve by completing this project?**
+
+1. **Simplicity:** I was able to effectively to simplift the creation of the hosting of the website through automating the deployment process using Terraform by reducing manual effort and ensures consistency across environments as the deployment of infrastructure and website hosting can be error-prone and time-consuming
+   
+
+## **What issues did I face while working on the project and how did I resolve that issue?**
+  
+- **Terraform Configuration Errors:** I had faced the issue of Syntax errors and incorrect configuration in Terraform files. I was able to resolve both issues by using Terraform validate and terraform plan commands to check for errors and view changes before applying them
+
+- **Terraform file setup Error:** Initially when starting the project, I had faced the challenge of my created main.tf file not being picked up or when entering the terraform apply command. I would get an error message stating the file could not be found in my directory despite it being there. I had resolved this issue by creating a new copy of the file and saving it in VS Code ensuring the Terraform logo appeared after it was correctly formatted. I then uploaded it into the directory folder and ran the Terrafrom apply command again. After doing this it had successfully worked
+ 
+
+ ## **What overall lessons did I learn?**
+ 
+- **AWS IAM (Identity and Access Management):** Understanding the role of IAM in securing and managing access to AWS resources. Creating IAM roles and policies to grant necessary permissions for Terraform to manage AWS resources
+
+- **Terraform Basics:** Infrastructure as Code (IaC): Understanding how to define and manage infrastructure using code. Terraform Configuration: Learning the syntax and structure of Terraform configuration files (e.g., .tf files)
+
+
+
+
+
