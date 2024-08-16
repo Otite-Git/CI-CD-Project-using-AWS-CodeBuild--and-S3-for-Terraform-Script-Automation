@@ -35,6 +35,10 @@ This project demonstrates how create a CodeBuild project that automatically appl
 5. using the terminal or command prompt change directory to where you want the cloned repository stored and use the command 'git clone' followed by pasting the SSH link into the terminal or command prompt and click enter
 6. The Terraform file provided will launch the EC2 instance and install the HTML website on it
 
+### S3 bucket Creation
+1. Create a S3 bucket which will be used to store the Terraform state file as aprt of the script testing
+2. Ensure that the S3 bucket given name is unique as the is a requirement for creating an S3 bucket
+
 ### Test the Terraform Script
 1. Open the repository cloned on your computer. select the Terraform script provided 'ec2.tf' and within the script update the profile name your selected profile name. To create a profile name which will be used, open your Command Line or Terminal and used the command below:
 ```bash
