@@ -15,7 +15,8 @@ This project consists of AWS CodeBuild creation that automatically applies Terra
 1. **IAM User:** CodeBuild will use User Credentials to authenticate with the AWS environemnt when the Build Project is being created
 2. **Git:** Used to clone the provided files into the directory
 3. **Terraform Script:**  The Terraform file provided will launch the EC2 instance and install the HTML website on it
-
+4. **AWS CodeBuild:** To compile your source code and run CodeBuild job that will automatically apply a terraform script whenever I commit a change into a GitHub reposistory
+5.  **AWS S3:** Enables environmental file storage.
 
 ## **Deployment Steps**
 
