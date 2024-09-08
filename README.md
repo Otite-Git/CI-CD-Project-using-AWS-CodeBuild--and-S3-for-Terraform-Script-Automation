@@ -1,8 +1,8 @@
 # 💻Terraform Script automation to install HTML Website with AWS Codebuild and AWS S3 (CI/CD)☁️
 
-Hi! Welcome to my repository containing my AWS Project I've have undertaken as a Cloud Engineer and Cloud architect enthusiast⚡️:
+Hi! Welcome to my repository containing my AWS Project I've have undertaken as an AWS expert and Cloud enthusiast⚡️:
 
-In this repository you will see a description of the project, low and high level architecture, scripting files and information on other key assets that I have used to develop this project as part of my portfolio and progressive development.
+In this repository you will see a description of the project, low and high level architecture, scripting files and information on other key assets that I have used to develop this project as part of my portfolio.
 
 
 ## **Project Overview** 
@@ -116,9 +116,6 @@ It will show you the deletion plan, enter 'yes' and it will delete the resources
 
 Contributions to this project are welcome! Please fork the repository and submit a pull request with your enhancements
 
-## **License**
-
-This project is licensed under the MIT License - see the LICENSE file for details
 
 ## **What problems did I solve by completing this project?**
 
