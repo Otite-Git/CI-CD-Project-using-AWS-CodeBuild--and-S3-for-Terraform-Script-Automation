@@ -47,9 +47,9 @@ This project consists of AWS CodeBuild creation that automatically applies Terra
 ```bash
 Terraform innit
  ```
-This command initialises the file with your AWS environment. This should look like ths:
-Provie a screenshot
-6. Once initialised the next command to enter is 
+This command initialises the file with your AWS environment. 
+
+6. Once initialised the next command to enter is:
 ```bash
  Terraform apply
 ```
