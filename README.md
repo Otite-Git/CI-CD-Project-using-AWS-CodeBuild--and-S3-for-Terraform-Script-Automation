@@ -110,7 +110,7 @@ It will show you the deletion plan, enter 'yes' and it will delete the resources
 ## **Additional Resources**
 
 - **AWS Documentation:** Refer to the [AWS documentation](https://aws.amazon.com/documentation/) for detailed guides on setting up S3 Bucket, IAM roles and other services such as VPC, EC2, Auto Scaling, and Load Balancer
-- **GitHub Repository Files:** Refer to [Otite-Git/-Host-a-Static-Website-on-AWS-S3-Bucket-With-Terraform](https://github.com/Otite-Git/CI-CD-Project-using-AWS-CodeBuild--and-S3-for-Terraform-Script-Automation.git) to access the repository files for scripts, architectural diagrams, and configuration files necessary for deploying the website.
+- **GitHub Repository Files:** Refer to [Otite-Git/-Host-a-Static-Website-on-AWS-S3-Bucket-With-Terraform](https://github.com/Otite-Git/CI-CD-Project-using-AWS-CodeBuild--and-S3-for-Terraform-Script-Automation.git) to access the repository files for scripts, architectural diagrams, and configuration files necessary for this project.
 
 ## **Contributing**
 
