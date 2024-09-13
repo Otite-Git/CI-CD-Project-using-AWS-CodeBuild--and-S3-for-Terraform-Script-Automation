@@ -10,7 +10,7 @@ In this repository you will see a description of the project, low and high level
 This project consists of AWS CodeBuild creation that automatically applies Terraform scripts whenever a commit change is made in the GitHub repository. The Terraform script uses an EC2 instance and creates an S3 bucket to as a means of CI/CD automation to also deploy a HTML website.
 
 
-## **Tools used**
+## **Architecture**
 
 1. **IAM User:** CodeBuild will use User Credentials to authenticate with the AWS environemnt when the Build Project is being created
 2. **Git:** Used to clone the provided files into the directory
