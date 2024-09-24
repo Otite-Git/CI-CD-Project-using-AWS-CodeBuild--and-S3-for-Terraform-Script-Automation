@@ -9,6 +9,7 @@ In this repository you will see a description of the project, low and high level
 
 This project consists of AWS CodeBuild creation that automatically applies Terraform scripts whenever a commit change is made in the GitHub repository. The Terraform script uses an EC2 instance and creates an S3 bucket to as a means of CI/CD automation to also deploy a HTML website.
 
+<img width="935" alt="Screenshot 2024-09-24 at 12 41 35" src="https://github.com/user-attachments/assets/ba3a7a4c-aed4-4a5f-9384-7addbf15fb2e">
 
 ## **Architecture**
 
