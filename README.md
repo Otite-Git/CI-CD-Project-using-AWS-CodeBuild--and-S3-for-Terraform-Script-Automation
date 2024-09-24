@@ -33,7 +33,7 @@ This project consists of AWS CodeBuild creation that automatically applies Terra
 6. The Terraform file provided will launch the EC2 instance and install the HTML website on it
 
 ### S3 bucket Creation
-1. Create a S3 bucket which will be used to store the Terraform state file as aprt of the script testing
+1. Create a S3 bucket which will be used to store the Terraform state file as part of the script testing
 2. Ensure that the S3 bucket given name is unique as the is a requirement for creating an S3 bucket
 
 ### Test the Terraform Script
